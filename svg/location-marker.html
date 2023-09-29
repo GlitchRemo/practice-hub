@@ -5,13 +5,11 @@
 		<title>Document</title>
 		<style>
 			body {
-				width: 100%;
-				height: 20em;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 			}
-
+			/* 
 			#marker {
 				animation: hover 1.3s infinite alternate;
 			}
@@ -23,32 +21,43 @@
 				to {
 					transform: translate(0, -20px);
 				}
-			}
+			} */
 		</style>
 	</head>
 	<body>
-		<svg
-			id="marker"
-			width="50px"
-			height="50px"
-			viewBox="0 0 512 512"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<g>
+		<svg id="marker" width="30px" height="30px" x="30" y="30" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg">
+			<g id="g2">
 				<path
 					d="M 172.268,501.67 C 26.97,291.031 0,269.413 0,192 0,85.961 85.961,0 192,0 c 106.039,0 192,85.961 192,192 0,77.413 -26.97,99.031 -172.268,309.67 -9.535,13.774 -29.93,13.773 -39.464,0 z"
+					id="path1"
 				/>
 				<circle
-					style="
-						fill: hsl(0 0% 90% / 1);
-						stroke-width: 10px;
-						stroke-linejoin: bevel;
-					"
+					
+						fill=" hsl(0 0% 90% / 1)";
+						stroke-width="10px";
+						stroke-linejoin="bevel";
 					cx="192.09845"
 					cy="191.99371"
 					r="79.81041"
-				/>
-			</g>
+					id="circle1"
+					>
+					<animate  attributeType="XML" attributeName="y" from="0" to="50" dur="6s" repeatCount="indefinite" >
+				</circle>
+				</g>
 		</svg>
+
+
+		<!-- <svg y="1" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+			<rect x="50" y="50" width="100" height="100">
+				<animate
+					attributeType="XML"
+					attributeName="y"
+					from="0"
+					to="50"
+					dur="5s"
+					repeatCount="indefinite"
+				/>
+			</rect>
+		</svg> -->
 	</body>
 </html>
