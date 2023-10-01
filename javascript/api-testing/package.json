@@ -1,0 +1,27 @@
+{
+	"name": "api-testing",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "node test/*/*",
+		"start": "node main.js",
+		"dev": "node --watch main.js",
+		"lint": "eslint .",
+		"coverage": "nyc node --test"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"eslint": "^8.47.0",
+		"express": "^4.18.2"
+	},
+	"devDependencies": {
+		"nyc": "^15.1.0",
+		"supertest": "^6.3.3"
+	}
+}
