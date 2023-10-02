@@ -1,9 +1,0 @@
-{
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "formulahendry.auto-rename-tag",
-    "pkief.material-icon-theme",
-    "dbaeumer.vscode-eslint",
-    "github.vscode-github-actions"
-  ]
-}
