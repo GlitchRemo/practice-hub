@@ -4,12 +4,16 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"clean-build": "rm -rf ./dist && tsc"
+		"clean-build": "rm -rf ./dist && tsc",
+		"dev": "node --watch ./dist/generics.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"@types/node": "^20.8.2"
 	}
 }

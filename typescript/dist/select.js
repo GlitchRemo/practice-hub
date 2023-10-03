@@ -5,8 +5,6 @@ var Gender;
     Gender[Gender["MALE"] = 0] = "MALE";
     Gender[Gender["FEMALE"] = 1] = "FEMALE";
 })(Gender || (Gender = {}));
-const o = { "0": "a", "2": "b" };
-console.log(o);
 const eligibleVoters = (people, selector) => people.filter(selector);
 const bittu = {
     name: "Bittu",
