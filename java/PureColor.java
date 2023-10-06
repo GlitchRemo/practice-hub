@@ -1,3 +1,0 @@
-interface PureColor {
-  void printColor();
-}
