@@ -16,5 +16,14 @@ class Main {
     count(characterCounter, "abc cde");
 
     System.out.println(Colors.RED);
+
+    Pikachu pikachu = new Pikachu();
+    Bulbasaur bulbasaur = new Bulbasaur();
+    System.out.println(Colors.toString());
+
+    pikachu.attack(bulbasaur);
+    System.out.println(pikachu);
+    System.out.println(bulbasaur);
+
   }
 }
