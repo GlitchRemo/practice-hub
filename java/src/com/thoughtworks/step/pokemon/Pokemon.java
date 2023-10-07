@@ -1,3 +1,7 @@
+package com.thoughtworks.step.pokemon;
+
+import com.thoughtworks.step.pokemon.Attacker;
+
 abstract class Pokemon implements Attacker{
   String name;
   int hp;
