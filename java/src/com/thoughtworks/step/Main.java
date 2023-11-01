@@ -1,25 +1,25 @@
 package com.thoughtworks.step;
 
-import com.thoughtworks.step.generics.Pair;
-import com.thoughtworks.step.utils.MyString;
-import com.thoughtworks.step.utils.Complex;
-import com.thoughtworks.step.utils.Add;
-
-import com.thoughtworks.step.shapes.Pattern;
 import com.thoughtworks.step.colors.Color;
-
-import com.thoughtworks.step.pokemon.Pikachu;
-import com.thoughtworks.step.pokemon.Bulbasaur;
-
 import com.thoughtworks.step.counters.CharacterCounter;
 import com.thoughtworks.step.counters.Countable;
+import com.thoughtworks.step.generics.Pair;
+import com.thoughtworks.step.pokemon.Bulbasaur;
+import com.thoughtworks.step.pokemon.Pikachu;
+import com.thoughtworks.step.set.Fruit;
+import com.thoughtworks.step.shapes.Pattern;
+import com.thoughtworks.step.utils.Add;
+import com.thoughtworks.step.utils.Complex;
+import com.thoughtworks.step.utils.MyString;
 import com.thoughtworks.step.wildcard.Family;
 import com.thoughtworks.step.wildcard.Me;
 import com.thoughtworks.step.wildcard.Mother;
 
+import java.util.*;
+
 class Main {
   static void count(Countable countable, String text) {
-    for(char c: text.toCharArray()) countable.count(c);
+    for (char c : text.toCharArray()) countable.count(c);
     System.out.println(countable);
   }
 
@@ -82,17 +82,6 @@ class Main {
     Color.RED.printColor();
   }
 
-  public static void main(String[] args) {
-    useStringMethods();
-    printPatterns();
-    addNumbers();
-    attackPokemon();
-    countCharacters();
-    printColor();
-    useGenericTypes();
-    useWildcards();
-  }
-
   private static void printName(Family<? extends Mother> family) {
   }
 
@@ -103,4 +92,67 @@ class Main {
     printName(family);
   }
 
+  private static void useCollectionMethods() {
+    List<java.lang.Integer> numbers = new ArrayList<>();
+    numbers.add(2);
+    numbers.add(3);
+    numbers.add(4);
+    numbers.add(5);
+    boolean contains = numbers.contains(2);
+    Collections.reverse(numbers);
+    Collections.shuffle(numbers);
+    System.out.println(contains);
+    System.out.println(numbers);
+  }
+
+  private static void createAndUseSet() {
+    int a = 1;
+    System.out.println(Integer.hashCode(a));
+
+    int[] arr = { 1, 2, 3 };
+    int[] brr = { 1, 2, 3 };
+    Set<int[]> arrays = new HashSet<>();
+    arrays.add(arr);
+    arrays.add(brr);
+    System.out.println(Arrays.hashCode(arr));
+//    System.out.println(Arrays.hashCode(arr));
+//    System.out.println(Arrays.hashCode(brr));
+    System.out.println(Arrays.hashCode(brr));
+    System.out.println(arrays);
+
+    System.out.println(Arrays.hashCode(arr));
+
+    System.out.println(Character.hashCode('a'));
+
+    Set<Fruit> fruits = new HashSet<>();
+
+    fruits.add(new Fruit("mango"));
+    fruits.add(new Fruit("mango"));
+    fruits.add(new Fruit("apple"));
+
+    System.out.println(fruits);
+  }
+
+  public static void main(String[] args) {
+    System.out.println(">Strings");
+    useStringMethods();
+    System.out.println(">Patterns");
+    printPatterns();
+    System.out.println(">Addition");
+    addNumbers();
+    System.out.println(">Pokemon");
+    attackPokemon();
+    System.out.println(">Count characters");
+    countCharacters();
+    System.out.println(">Print color");
+    printColor();
+    System.out.println(">Generic types");
+    useGenericTypes();
+    System.out.println(">Wildcards");
+    useWildcards();
+    System.out.println(">Collection Methods");
+    useCollectionMethods();
+    System.out.println(">Set");
+    createAndUseSet();
+  }
 }
