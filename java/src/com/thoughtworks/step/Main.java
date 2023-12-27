@@ -93,7 +93,7 @@ class Main {
   }
 
   private static void useCollectionMethods() {
-    List<java.lang.Integer> numbers = new ArrayList<>();
+    List<Integer> numbers = new ArrayList<>();
     numbers.add(2);
     numbers.add(3);
     numbers.add(4);
