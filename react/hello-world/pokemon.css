@@ -1,0 +1,9 @@
+body {
+	font-family: sans-serif;
+}
+
+.pokemons {
+	display: flex;
+	width: 80%;
+	flex-wrap: wrap;
+}
