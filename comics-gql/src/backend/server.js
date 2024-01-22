@@ -12,7 +12,7 @@ const schema = buildSchema(`
   type Comic {
     num: Int
     title: String
-    img: String
+    img: String 
     alt: String
   }
 
@@ -23,7 +23,7 @@ const schema = buildSchema(`
 `);
 
 const root = {
-	getComic: ({ num }) => comicDataHandler.getComic(num),
+	getComic: ({ num}) => comicDataHandler.getComic(num),
 	getRandomComic: () => comicDataHandler.getRandomComic(),
 };
 
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 app.use(cors());
 
 app.use(
-	"/graphql",
+		"/graphql",
 	graphqlHTTP({ schema: schema, rootValue: root, graphiql: true })
 );
 
