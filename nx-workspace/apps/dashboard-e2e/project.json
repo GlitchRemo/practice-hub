@@ -1,0 +1,26 @@
+{
+  "name": "dashboard-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dashboard-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/dashboard-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "dashboard:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "dashboard:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["dashboard"]
+}

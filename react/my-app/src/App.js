@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Switch from "react-switch";
 
 const Post = ({ title, likes, children }) => (
 	<div>
@@ -12,19 +13,25 @@ const Post = ({ title, likes, children }) => (
 const PostApi = {};
 PostApi.fetchPost = () => fetch("/api/fetchPost").then((res) => res.json());
 
+// const App = () => {
+// 	const [post, setPost] = useState(null);
+
+// 	useEffect(() => {
+// 		PostApi.fetchPost().then(setPost);
+// 	}, []);
+
+// 	if (post === null) return <p>Loading...</p>;
+
+// 	return (
+// 		<Post title={post.title} likes={post.likes}>
+// 			{post.text}
+// 		</Post>
+// 	);
+// };
+
 const App = () => {
-	const [post, setPost] = useState(null);
-
-	useEffect(() => {
-		PostApi.fetchPost().then(setPost);
-	}, []);
-
-	if (post === null) return <p>Loading...</p>;
-
 	return (
-		<Post title={post.title} likes={post.likes}>
-			{post.text}
-		</Post>
+		<Switch checked onChange={() => console.log("heu")} offColor="#123456" />
 	);
 };
 
