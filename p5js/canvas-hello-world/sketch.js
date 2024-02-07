@@ -1,45 +1,35 @@
-let img;
-const width = 1000;
-const height = 1000;
-
 function setup() {
-	createCanvas(width, height);
+	createCanvas(windowWidth, windowHeight);
 }
 
-function preload() {
-	img = loadImage("assets/M.jpg");
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-	background(220);
-	image(
-		img,
-		50,
-		50,
-		width - 100,
-		height - 100,
-		0,
-		0,
-		img.width,
-		img.height,
-		COVER
-	);
+	background(0);
+	translate(width / 2, height - 100);
+	branch(150, 10);
+}
 
-	loadPixels();
+function drawLine(length) {
+	stroke(255);
+	line(0, 0, 0, -length);
+	translate(0, -length);
+}
 
-	// for (let y = 50; y < img.height; y++) {
-	// 	for (let x = 50; x < img.width; x++) {
-	// 		const index = (x + y * width) * 4;
+function branch(length, depth) {
+	if (depth <= 1) return;
 
-	// 		pixels[index] = 255;
-	// 		pixels[index + 1] = 255;
-	// 		pixels[index + 2] = 255;
-	// 		pixels[index + 3] = 255;
-	// 	}
-	// }
+	drawLine(length);
 
-	// // const p = get(100, 100);
-	// // console.log(p);
+	push();
+	rotate(PI / 4);
+	branch(length * 0.75, depth - 1);
+	pop();
 
-	updatePixels();
+	push();
+	rotate(-PI / 8);
+	branch(length * 0.75, depth - 1);
+	pop();
 }
