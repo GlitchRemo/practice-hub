@@ -1,0 +1,278 @@
+; This is the Calva REPL Window.
+; It's just a file, really, with some special treatment from Calva.
+; Use it as a REPL input prompt if you like. (When the REPL is connected.)
+; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
+; Please see https://calva.io/repl-window/ for more info.
+; Happy coding! ♥️
+
+; TIPS: As with any Clojure file when the REPL is connected:
+; - `alt+enter` evaluates the current top level form.
+; - `ctrl+enter` evaluates the current form.
+; Special for this file:
+; - `alt+up` and `alt+down` traverse up and down the REPL command history
+;    when the cursor is after the last contents at the prompt
+
+PLEASE NOTE
+We will update the default location of this file. 
+The new default location will be 
+  "<projectRootPath>/.calva/repl.calva-repl"
+For now the legacy path is used by default.
+To give yourself a smooth transition, you can opt in
+to the change, by configuring this setting as false: 
+  "calva.useLegacyReplWindowPath"
+and then add "**/.calva/repl.calva-repl" to your ".gitignore" file.
+
+
+This file is configured as the output destination for all REPL output.
+You can configure this with the setting:
+  "calva.outputDestinations"
+
+
+; Jacking in...
+; Connecting using "Babashka" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in Terminal: pushd /Users/riyaghosal/playground/clojure ; bb --nrepl-server 54260 ; popd
+; Interrupting Jack-in process.
+; Connecting using "Babashka" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; nREPL Connection was closed
+; Jacking in...
+; Connecting using "deps.edn" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in Terminal: pushd /Users/riyaghosal/playground/clojure ; clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version,"1.0.0"},cider/cider-nrepl {:mvn/version,"0.28.5"}}}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]" ; popd
+; Using host:port localhost:53907 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉user꞉> 
+; Jack-in done.
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user$our_partial$fn__5783/doInvoke (REPL:1).
+; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:1:19).
+; Unable to resolve symbol: f in this context
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:1:19).
+; Unable to resolve symbol: f in this context
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+; #function[clojure.core/*] (1 2)
+; Execution error (NullPointerException) at user/eval7785 (REPL:3).
+; Cannot invoke "clojure.lang.IFn.invoke(Object)" because the return value of "clojure.lang.IFn.invoke(Object, Object, Object)" is null
+clj꞉user꞉> 
+; #function[clojure.core/*] (1 2)
+nil
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7789 (REPL:4).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7791 (REPL:4).
+; class clojure.lang.PersistentList cannot be cast to class java.lang.Number (clojure.lang.PersistentList is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+((2) 1)
+clj꞉user꞉> 
+[1 [2]]
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+; Execution error (ArityException) at user/our-partial (REPL:1).
+; Wrong number of args (0) passed to: user/our-partial/fn--7797
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+6
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user$our_partial$fn__7810/doInvoke (REPL:1).
+; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+; Execution error (IllegalArgumentException) at user/eval7815 (REPL:4).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉user꞉> 
+; Execution error (IllegalArgumentException) at user/eval7817 (REPL:4).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user$our_partial$fn__7821/doInvoke (REPL:1).
+; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+#'user/f
+clj꞉user꞉> 
+; (1)
+nil
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7833 (REPL:7).
+; Wrong number of args (2) passed to: clojure.core/inc
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7841 (REPL:7).
+; class clojure.lang.PersistentList cannot be cast to class java.lang.Number (clojure.lang.PersistentList is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:1:57).
+; Unable to resolve symbol: args in this context
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user$our_partial$fn__7845/doInvoke (REPL:1).
+; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+#'user/our-partial
+clj꞉user꞉> 
+6
+clj꞉user꞉> 
+#function[clojure.core/juxt/fn--5893]
+clj꞉user꞉> 
+["[\"apple\" \"banana\" \"cherry\"]" "apple"]
+clj꞉user꞉> 
+""
+clj꞉user꞉> 
+"["
+clj꞉user꞉> 
+; Syntax error reading source at (REPL:10:16).
+; Unmatched delimiter: )
+clj꞉user꞉> 
+; Syntax error reading source at (REPL:10:16).
+; Unmatched delimiter: )
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:10:1).
+; Unable to resolve symbol: apple in this context
+clj꞉user꞉> 
+"[\"apple\"]"
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:10:1).
+; Unable to resolve symbol: apple in this context
+clj꞉user꞉> 
+"[apple]"
+clj꞉user꞉> 
+(9 8 7)
+clj꞉user꞉> 
+[1 2]
+clj꞉user꞉> 
+[[1 2]]
+clj꞉user꞉> 
+[[1 2]]
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7894 (REPL:13).
+; Wrong number of args (2) passed to: user/eval7894/fn--7895
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7900 (REPL:13).
+; Wrong number of args (2) passed to: user/eval7900/fn--7901
+clj꞉user꞉> 
+3
+clj꞉user꞉> 
+[[false true] [false true]]
+clj꞉user꞉> 
+#'user/a
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7927 (REPL:17).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉user꞉> 
+5
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7929 (REPL:18).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7933 (REPL:19).
+; Wrong number of args (0) passed to: clojure.core/identity
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7935 (REPL:19).
+; class clojure.core$identity cannot be cast to class java.lang.Number (clojure.core$identity is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7939 (REPL:18).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+#function[clojure.core/inc]
+clj꞉user꞉> 
+inc
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+3
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+3
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+6
+clj꞉user꞉> 
+6
+clj꞉user꞉> 
+#'user/square
+clj꞉user꞉> 
+9
+clj꞉user꞉> 
+16
+clj꞉user꞉> 
+"ab"
+clj꞉user꞉> 
+#function[clojure.core/zero?]
+clj꞉user꞉> 
+; (defn zero?
+;   "Returns true if num is zero, else false"
+;   {
+;    :inline (fn [num] `(. clojure.lang.Numbers (isZero ~num)))
+;    :added "1.0"}
+;   [num] (. clojure.lang.Numbers (isZero num)))
+nil
+clj꞉user꞉> 
