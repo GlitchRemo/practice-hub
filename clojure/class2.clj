@@ -23,4 +23,27 @@
 
 (str "a" "b")
 
-(source zero?)
+(loop [a 2] (if (= a 1) (println "hello") (recur (dec a))))
+
+(def my-square (comp (partial apply *) (juxt identity identity)))
+(my-square 5)
+
+(numerator (apply / (conj (range 1 10) 11)))
+
+((partial range 3))
+((conj (partial map (/ 3))  (partial range 3)) 3)
+
+(comment 
+  ;; destructuring (list set)
+  ;; syms strs keys
+  ;; body on next line
+  constantly
+  lazy-seq
+  cons
+  mapcat
+  lazy-cat
+  cycle
+  map-indexed
+  keep
+  keep-indexed
+  rand-nth)

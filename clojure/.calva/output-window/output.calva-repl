@@ -29,19 +29,70 @@ You can configure this with the setting:
 
 
 ; Jacking in...
-; Connecting using "Babashka" project type.
+; Connecting using "deps.edn" project type.
 ; You can make Calva auto-select this.
 ;   - See https://calva.io/connect-sequences/
 ; 
 
-; Starting Jack-in Terminal: pushd /Users/riyaghosal/playground/clojure ; bb --nrepl-server 54260 ; popd
-; Interrupting Jack-in process.
-; Connecting using "Babashka" project type.
-; You can make Calva auto-select this.
-;   - See https://calva.io/connect-sequences/
-; 
-
-; nREPL Connection was closed
+; Starting Jack-in Terminal: pushd /Users/riyaghosal/playground/clojure ; clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version,"1.0.0"},cider/cider-nrepl {:mvn/version,"0.28.5"}}}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]" ; popd
+; Using host:port localhost:50046 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉user꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉user꞉> 
+; Jack-in done.
+clj꞉user꞉> 
+"ab"
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7780 (REPL:27).
+; class clojure.core$partial$fn__5908 cannot be cast to class java.lang.Number (clojure.core$partial$fn__5908 is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+3
+clj꞉user꞉> 
+; 10
+nil
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+3
+clj꞉user꞉> 
+6
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:28:1).
+; Unable to resolve symbol: my-square in this context
+clj꞉user꞉> 
+2
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:29:1).
+; Unable to resolve symbol: isPrime in this context
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:29:1).
+; Unable to resolve symbol: isPrime in this context
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:29:1).
+; Unable to resolve symbol: isPrime in this context
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:29:1).
+; Unable to resolve symbol: isPrime in this context
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:29:1).
+; Unable to resolve symbol: isPrime in this context
+clj꞉user꞉> 
+; Syntax error compiling at (class2.clj:29:1).
+; Unable to resolve symbol: isPrime in this context
+clj꞉user꞉> 
 ; Jacking in...
 ; Connecting using "deps.edn" project type.
 ; You can make Calva auto-select this.
@@ -49,7 +100,8 @@ You can configure this with the setting:
 ; 
 
 ; Starting Jack-in Terminal: pushd /Users/riyaghosal/playground/clojure ; clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version,"1.0.0"},cider/cider-nrepl {:mvn/version,"0.28.5"}}}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]" ; popd
-; Using host:port localhost:53907 ...
+; nREPL Connection was closed
+; Using host:port localhost:50453 ...
 ; Hooking up nREPL sessions ...
 ; Connected session: clj
 ; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
@@ -57,222 +109,168 @@ nil
 clj꞉user꞉> 
 ; Jack-in done.
 clj꞉user꞉> 
-#'user/our-partial
+"ab"
 clj꞉user꞉> 
-; Execution error (ClassCastException) at user$our_partial$fn__5783/doInvoke (REPL:1).
-; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
-clj꞉user꞉> 
-; Syntax error compiling at (class2.clj:1:19).
-; Unable to resolve symbol: f in this context
-clj꞉user꞉> 
-; Syntax error compiling at (class2.clj:1:19).
-; Unable to resolve symbol: f in this context
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-; #function[clojure.core/*] (1 2)
-; Execution error (NullPointerException) at user/eval7785 (REPL:3).
-; Cannot invoke "clojure.lang.IFn.invoke(Object)" because the return value of "clojure.lang.IFn.invoke(Object, Object, Object)" is null
-clj꞉user꞉> 
-; #function[clojure.core/*] (1 2)
+; hello
 nil
 clj꞉user꞉> 
-; Execution error (ClassCastException) at user/eval7789 (REPL:4).
-; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+4
 clj꞉user꞉> 
-; Execution error (ClassCastException) at user/eval7791 (REPL:4).
-; class clojure.lang.PersistentList cannot be cast to class java.lang.Number (clojure.lang.PersistentList is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+; Execution error (IllegalArgumentException) at user/eval7537 (REPL:27).
+; Don't know how to create ISeq from: clojure.core$juxt$fn__5891
 clj꞉user꞉> 
-((2) 1)
+; Execution error (IllegalArgumentException) at user/eval7539 (REPL:27).
+; Don't know how to create ISeq from: clojure.core$juxt$fn__5891
 clj꞉user꞉> 
-[1 [2]]
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-; Execution error (ArityException) at user/our-partial (REPL:1).
-; Wrong number of args (0) passed to: user/our-partial/fn--7797
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-6
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user$our_partial$fn__7810/doInvoke (REPL:1).
-; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
-clj꞉user꞉> 
-; Execution error (IllegalArgumentException) at user/eval7815 (REPL:4).
-; Don't know how to create ISeq from: java.lang.Long
-clj꞉user꞉> 
-; Execution error (IllegalArgumentException) at user/eval7817 (REPL:4).
-; Don't know how to create ISeq from: java.lang.Long
-clj꞉user꞉> 
-1
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user$our_partial$fn__7821/doInvoke (REPL:1).
-; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-#'user/f
-clj꞉user꞉> 
-; (1)
-nil
-clj꞉user꞉> 
-; Execution error (ArityException) at user/eval7833 (REPL:7).
-; Wrong number of args (2) passed to: clojure.core/inc
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-1
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user/eval7841 (REPL:7).
-; class clojure.lang.PersistentList cannot be cast to class java.lang.Number (clojure.lang.PersistentList is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
-clj꞉user꞉> 
-; Syntax error compiling at (class2.clj:1:57).
-; Unable to resolve symbol: args in this context
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user$our_partial$fn__7845/doInvoke (REPL:1).
-; class clojure.lang.ArraySeq cannot be cast to class java.lang.Number (clojure.lang.ArraySeq is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
-clj꞉user꞉> 
-#'user/our-partial
-clj꞉user꞉> 
-6
+; Execution error (IllegalArgumentException) at user/eval7786 (REPL:27).
+; Don't know how to create ISeq from: clojure.core$partial$fn__5910
 clj꞉user꞉> 
 #function[clojure.core/juxt/fn--5893]
 clj꞉user꞉> 
-["[\"apple\" \"banana\" \"cherry\"]" "apple"]
+[2 2]
 clj꞉user꞉> 
-""
+; Execution error (IllegalArgumentException) at user/eval7792 (REPL:27).
+; Don't know how to create ISeq from: clojure.core$juxt$fn__5891
 clj꞉user꞉> 
-"["
+4
 clj꞉user꞉> 
-; Syntax error reading source at (REPL:10:16).
-; Unmatched delimiter: )
+#'user/my-square
 clj꞉user꞉> 
-; Syntax error reading source at (REPL:10:16).
-; Unmatched delimiter: )
-clj꞉user꞉> 
-; Syntax error compiling at (class2.clj:10:1).
-; Unable to resolve symbol: apple in this context
-clj꞉user꞉> 
-"[\"apple\"]"
-clj꞉user꞉> 
-; Syntax error compiling at (class2.clj:10:1).
-; Unable to resolve symbol: apple in this context
-clj꞉user꞉> 
-"[apple]"
-clj꞉user꞉> 
-(9 8 7)
-clj꞉user꞉> 
-[1 2]
-clj꞉user꞉> 
-[[1 2]]
-clj꞉user꞉> 
-[[1 2]]
-clj꞉user꞉> 
-1
-clj꞉user꞉> 
-; Execution error (ArityException) at user/eval7894 (REPL:13).
-; Wrong number of args (2) passed to: user/eval7894/fn--7895
-clj꞉user꞉> 
-; Execution error (ArityException) at user/eval7900 (REPL:13).
-; Wrong number of args (2) passed to: user/eval7900/fn--7901
-clj꞉user꞉> 
-3
-clj꞉user꞉> 
-[[false true] [false true]]
-clj꞉user꞉> 
-#'user/a
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user/eval7927 (REPL:17).
-; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉user꞉> 
-5
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user/eval7929 (REPL:18).
-; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉user꞉> 
-1
-clj꞉user꞉> 
-; Execution error (ArityException) at user/eval7933 (REPL:19).
-; Wrong number of args (0) passed to: clojure.core/identity
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user/eval7935 (REPL:19).
-; class clojure.core$identity cannot be cast to class java.lang.Number (clojure.core$identity is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
-clj꞉user꞉> 
-1
-clj꞉user꞉> 
-; Execution error (ClassCastException) at user/eval7939 (REPL:18).
-; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-#function[clojure.core/inc]
-clj꞉user꞉> 
-inc
-clj꞉user꞉> 
-#'user/square
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-#'user/square
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-2
-clj꞉user꞉> 
-#'user/square
-clj꞉user꞉> 
-1
-clj꞉user꞉> 
-#'user/square
-clj꞉user꞉> 
-3
-clj꞉user꞉> 
-#'user/square
-clj꞉user꞉> 
-1
-clj꞉user꞉> 
-#'user/square
-clj꞉user꞉> 
-3
-clj꞉user꞉> 
-#'user/square
-clj꞉user꞉> 
-6
-clj꞉user꞉> 
-6
-clj꞉user꞉> 
-#'user/square
+4
 clj꞉user꞉> 
 9
 clj꞉user꞉> 
-16
+1/2
 clj꞉user꞉> 
-"ab"
+1/6
 clj꞉user꞉> 
-#function[clojure.core/zero?]
+5/6
 clj꞉user꞉> 
-; (defn zero?
-;   "Returns true if num is zero, else false"
-;   {
-;    :inline (fn [num] `(. clojure.lang.Numbers (isZero ~num)))
-;    :added "1.0"}
-;   [num] (. clojure.lang.Numbers (isZero num)))
-nil
+0
+clj꞉user꞉> 
+5/6
+clj꞉user꞉> 
+5
+clj꞉user꞉> 
+25
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7814 (REPL:31).
+; Wrong number of args (3) passed to: clojure.core/mod
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7816 (REPL:31).
+; Wrong number of args (3) passed to: clojure.core/mod
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7818 (REPL:31).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉user꞉> 
+1
+clj꞉user꞉> 
+; Execution error (ArityException) at user/eval7822 (REPL:31).
+; Wrong number of args (3) passed to: clojure.core/mod
+clj꞉user꞉> 
+(1 2 3 4 5 6 7 8 9)
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7826 (REPL:31).
+; class java.lang.Long cannot be cast to class clojure.lang.IPersistentCollection (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IPersistentCollection is in unnamed module of loader 'app')
+clj꞉user꞉> 
+[11 (1 2 3 4 5 6 7 8 9)]
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7830 (REPL:31).
+; class java.lang.Long cannot be cast to class clojure.lang.IFn (java.lang.Long is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉user꞉> 
+[11 (1 2 3 4 5 6 7 8 9)]
+clj꞉user꞉> 
+[11 [#function[clojure.core/range] 1 10]]
+clj꞉user꞉> 
+[11 (1 2 3 4 5 6 7 8 9)]
+clj꞉user꞉> 
+(11 1 2 3 4 5 6 7 8 9)
+clj꞉user꞉> 
+11/362880
+clj꞉user꞉> 
+11/362880
+clj꞉user꞉> 
+11
+clj꞉user꞉> 
+(3)
+clj꞉user꞉> 
+(3 4 5 6 7 8 9)
+clj꞉user꞉> 
+#function[clojure.core/partial/fn--5908]
+clj꞉user꞉> 
+(3 4 5 6 7 8 9)
+clj꞉user꞉> 
+#function[clojure.core/partial/fn--5908]
+clj꞉user꞉> 
+#function[clojure.core/partial/fn--5908]
+clj꞉user꞉> 
+()
+clj꞉user꞉> 
+()
+clj꞉user꞉> 
+(0 1 2)
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7864 (REPL:33).
+; class clojure.core$partial$fn__5908 cannot be cast to class clojure.lang.IPersistentCollection (clojure.core$partial$fn__5908 and clojure.lang.IPersistentCollection are in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7866 (REPL:33).
+; class clojure.lang.Cons cannot be cast to class clojure.lang.IFn (clojure.lang.Cons and clojure.lang.IFn are in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7868 (REPL:33).
+; class clojure.lang.Cons cannot be cast to class clojure.lang.IFn (clojure.lang.Cons and clojure.lang.IFn are in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7870 (REPL:33).
+; class clojure.core$partial$fn__5908 cannot be cast to class clojure.lang.IPersistentCollection (clojure.core$partial$fn__5908 and clojure.lang.IPersistentCollection are in unnamed module of loader 'app')
+clj꞉user꞉> 
+(1 2)
+clj꞉user꞉> 
+(3 3/2)
+clj꞉user꞉> 
+; Execution error (IndexOutOfBoundsException) at user/eval7876 (REPL:33).
+; null
+clj꞉user꞉> 
+[1/3]
+clj꞉user꞉> 
+[1/3 3]
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7882 (REPL:33).
+; class clojure.lang.LazySeq cannot be cast to class clojure.lang.IFn (clojure.lang.LazySeq and clojure.lang.IFn are in unnamed module of loader 'app')
+clj꞉user꞉> 
+#function[clojure.core/partial/fn--5908]
+clj꞉user꞉> 
+(1)
+clj꞉user꞉> 
+(1 2)
+clj꞉user꞉> 
+1/2
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7892 (REPL:34).
+; class clojure.core$identity cannot be cast to class java.lang.Number (clojure.core$identity is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7894 (REPL:34).
+; class clojure.core$identity cannot be cast to class java.lang.Number (clojure.core$identity is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7896 (REPL:34).
+; class clojure.core$identity cannot be cast to class java.lang.Number (clojure.core$identity is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7898 (REPL:34).
+; class clojure.core$identity cannot be cast to class java.lang.Number (clojure.core$identity is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7900 (REPL:34).
+; class clojure.core$partial$fn__5908 cannot be cast to class clojure.lang.IPersistentCollection (clojure.core$partial$fn__5908 and clojure.lang.IPersistentCollection are in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7902 (REPL:34).
+; class clojure.core$partial$fn__5908 cannot be cast to class clojure.lang.IPersistentCollection (clojure.core$partial$fn__5908 and clojure.lang.IPersistentCollection are in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7904 (REPL:34).
+; class clojure.core$partial$fn__5908 cannot be cast to class clojure.lang.IPersistentCollection (clojure.core$partial$fn__5908 and clojure.lang.IPersistentCollection are in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Execution error (ClassCastException) at user/eval7906 (REPL:34).
+; class clojure.core$partial$fn__5908 cannot be cast to class clojure.lang.IPersistentCollection (clojure.core$partial$fn__5908 and clojure.lang.IPersistentCollection are in unnamed module of loader 'app')
+clj꞉user꞉> 
+; Error printing return value (IllegalArgumentException) at clojure.lang.RT/seqFrom (RT.java:557).
+; Don't know how to create ISeq from: java.lang.Long
+clj꞉user꞉> 
+; Error printing return value (ClassCastException) at clojure.core/map$fn (core.clj:2770).
+; class clojure.lang.Ratio cannot be cast to class clojure.lang.IFn (clojure.lang.Ratio and clojure.lang.IFn are in unnamed module of loader 'app')
 clj꞉user꞉> 
