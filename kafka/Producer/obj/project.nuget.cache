@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "rR+XOQzFybMnvQHbiIvT9i7SlcuVYMWIn7d1Vmvv1OqF16ZXR0BqdsxMsK6kwso1YejNv/GsnyCLVWeAhbiFDA==",
+  "dgSpecHash": "lfZyHmtX5XaZPyALcQ1jrcm8ImIf8U79O+AVkG+LiXtd/Uv2KNPYnwMSq0Gima0LbsNWI0CwNTkWq6F7Aoy7Sg==",
   "success": true,
   "projectFilePath": "/Users/riyaghosal/playground/kafka/Producer/Producer.csproj",
   "expectedPackageFiles": [
     "/Users/riyaghosal/.nuget/packages/confluent.kafka/2.5.3/confluent.kafka.2.5.3.nupkg.sha512",
-    "/Users/riyaghosal/.nuget/packages/librdkafka.redist/2.5.3/librdkafka.redist.2.5.3.nupkg.sha512"
+    "/Users/riyaghosal/.nuget/packages/librdkafka.redist/2.5.3/librdkafka.redist.2.5.3.nupkg.sha512",
+    "/Users/riyaghosal/.nuget/packages/microsoft.netcore.app.ref/6.0.33/microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
+    "/Users/riyaghosal/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.33/microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512",
+    "/Users/riyaghosal/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.33/microsoft.netcore.app.host.osx-arm64.6.0.33.nupkg.sha512"
   ],
   "logs": []
 }
