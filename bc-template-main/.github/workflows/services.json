@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "name": "Api",
+      "image": "toReplace-api",
+      "main": "src/Api/Api.csproj",
+      "dockerfile": "images/Api/Dockerfile"
+    },
+    {
+      "name": "Service.ToReplaceProcessor",
+      "image": "toReplace-service-processor",
+      "main": "src/Service.ToReplaceProcessor/Service.ToReplaceProcessor.csproj",
+      "dockerfile": "images/Service.ToReplaceProcessor/Dockerfile"
+    }
+  ]
+}

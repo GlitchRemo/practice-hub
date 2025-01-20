@@ -1,0 +1,15 @@
+extends:
+  - recommended
+apis:
+  # internal:
+  #   root: ./src/Api/openapi.yaml
+  external:
+    root: ./src/Api/openapi.yaml
+    decorators:
+      filter-out:
+        property: tags
+        value: 
+          - InternalAddress
+          - InternalMeter
+          - InternalPremise
+        match: any

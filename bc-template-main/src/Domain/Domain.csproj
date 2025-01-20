@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AssemblyName>NGrid.Customer.ToReplace.Domain</AssemblyName>
+        <RootNamespace>NGrid.Customer.ToReplace.Domain</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>obj\Debug/net6.0/NGrid.Customer.ToReplace.Domain.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591;1587</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>obj\Release/net6.0/NGrid.Customer.ToReplace.Domain.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591;1587</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NGrid.Customer.Framework.Templates.Abstraction" Version="3.1.0" />
+
+    </ItemGroup>
+
+</Project>

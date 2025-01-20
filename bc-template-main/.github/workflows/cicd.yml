@@ -1,0 +1,43 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ 'main' ]
+    paths:
+      - src/**
+      - images/**
+      - .github/workflows/cicd.yml
+  workflow_dispatch:
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    outputs:
+      solutions: ${{ steps.projects.outputs.solutions }}
+      services: ${{ steps.projects.outputs.services }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: projects
+        run: |
+          echo "solutions=$(cat .github/workflows/solutions.json | jq -r tostring)" >> $GITHUB_OUTPUT
+          echo "services=$(cat .github/workflows/services.json | jq -r tostring)" >> $GITHUB_OUTPUT
+
+  cicd:
+    uses: nationalgrid-customer/cxp-workflows/.github/workflows/cicd.yml@main
+    needs: metadata
+    secrets: inherit
+    with:
+      repoName: toReplace
+      solutionsJson: ${{ needs.metadata.outputs.solutions }}
+      servicesJson: ${{ needs.metadata.outputs.services }}
+      scan: true
+      skipcd: true
+
+
+  ado-cd:
+    uses: nationalgrid-customer/cxp-workflows/.github/workflows/trigger_ado_cd.yml@main
+    needs: cicd
+    secrets: inherit
+    with:
+      pipelineBuildNumber: 9999
+      imageTag: ${{ needs.cicd.outputs.imageTag }}
