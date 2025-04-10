@@ -79,11 +79,25 @@ func handleAddTodo(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
+func handleGetTodos(w http.ResponseWriter, _ *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(todoList.Todos)
+}
+
 var todoList = TodoList{}
 
 func main() {
-	http.HandleFunc("/todos", handleAddTodo)
-	
+	http.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case http.MethodGet:
+			handleGetTodos(w, r)
+		case http.MethodPost:
+			handleAddTodo(w, r)
+		default:
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
+
 	todo1 := Todo{
 		ID:     uuid.New(),
 		Title:  "Learn Go",
@@ -101,4 +115,7 @@ func main() {
 
 	todoList.PrintTodos()
 	todoList.PrintTodosAsJSON()
+
+	fmt.Println("Starting server on :8080...")
+	http.ListenAndServe(":8080", nil)
 }
