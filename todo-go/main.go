@@ -1,120 +1,39 @@
 package main
 
 import (
-	"encoding/json"
+	"context"
 	"fmt"
 	"net/http"
+	"os"
 
-	"github.com/google/uuid"
+	"todo-go/database"
+	"todo-go/handlers"
+
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 )
-
-type Status string
-
-// Status constants
-const (
-	StatusDone   Status = "done"
-	StatusUndone Status = "undone"
-)
-
-type Todo struct {
-	ID     uuid.UUID `json:"id"`
-	Title  string    `json:"title"`
-	Status Status    `json:"status"`
-}
-
-type TodoList struct {
-	Todos []Todo
-}
-
-// Add a new todo to the list
-func (tl *TodoList) Add(todo Todo) {
-	tl.Todos = append(tl.Todos, todo)
-}
-
-// Print all todos in the list
-func (tl *TodoList) PrintTodos() {
-	for i, todo := range tl.Todos {
-		fmt.Printf("Todo %d\n", i+1)
-		fmt.Printf("  ID: %s\n", todo.ID.String())
-		fmt.Printf("  Title: %s\n", todo.Title)
-		fmt.Printf("  Status: %s\n\n", todo.Status)
-	}
-}
-
-// Marshal todos to JSON and print
-func (tl *TodoList) PrintTodosAsJSON() {
-	data, err := json.MarshalIndent(tl.Todos, "", "  ")
-	if err != nil {
-		fmt.Println("Error marshalling todos to JSON:", err)
-		return
-	}
-	fmt.Println("Todos in JSON format:")
-	fmt.Println(string(data))
-}
-
-func handleAddTodo(w http.ResponseWriter, r *http.Request) {
-	var todo Todo
-	guid := uuid.New()
-	err := json.NewDecoder(r.Body).Decode(&todo)
-
-	if err != nil {
-		http.Error(w, "Invalid Json", http.StatusBadRequest)
-		return
-	}
-
-	todo.ID = guid
-
-	if todo.Status == "" {
-		todo.Status = StatusUndone
-	}
-
-	todoList.Add(todo)
-
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusCreated)
-	response := map[string]any{
-		"status": "201 Created",
-		"todo":   todo,
-	}
-	json.NewEncoder(w).Encode(response)
-}
-
-func handleGetTodos(w http.ResponseWriter, _ *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(todoList.Todos)
-}
-
-var todoList = TodoList{}
 
 func main() {
 	http.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
-			handleGetTodos(w, r)
+			handlers.HandleGetTodos(w, r)
 		case http.MethodPost:
-			handleAddTodo(w, r)
+			handlers.HandleAddTodo(w, r)
 		default:
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
 
-	todo1 := Todo{
-		ID:     uuid.New(),
-		Title:  "Learn Go",
-		Status: StatusUndone,
+	// Load the AWS configuration
+	// This will load the default config from ~/.aws/config
+	cfg, err := config.LoadDefaultConfig(context.TODO())
+	if err != nil {
+		fmt.Println("Unable to load AWS config:", err)
+		os.Exit(1)
 	}
 
-	todo2 := Todo{
-		ID:     uuid.New(),
-		Title:  "Build a web app",
-		Status: StatusUndone,
-	}
-
-	todoList.Add(todo1)
-	todoList.Add(todo2)
-
-	todoList.PrintTodos()
-	todoList.PrintTodosAsJSON()
+	database.DynamoClient = dynamodb.NewFromConfig(cfg)
 
 	fmt.Println("Starting server on :8080...")
 	http.ListenAndServe(":8080", nil)
