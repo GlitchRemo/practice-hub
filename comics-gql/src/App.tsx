@@ -24,7 +24,7 @@ const App = () => {
 		<div className="App">
 			<header className="App-header">
 				<p>{getRandomComic.title}</p>
-				<img src={getRandomComic.img} alt={getRandomComic.alt}></img>
+				<img src={getRandomComic.img} alt={getRandomComic.alt} />
 			</header>
 		</div>
 	);
