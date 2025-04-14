@@ -13,28 +13,42 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 )
 
-func main() {
+func setupRoutes(dbClient database.DatabaseClient) {
 	http.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
-			handlers.HandleGetTodos(w, r)
+			handlers.HandleGetTodos(w, r, dbClient)
 		case http.MethodPost:
-			handlers.HandleAddTodo(w, r)
+			handlers.HandleAddTodo(w, r, dbClient)
 		default:
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
+}
 
-	// Load the AWS configuration
-	// This will load the default config from ~/.aws/config
-	cfg, err := config.LoadDefaultConfig(context.TODO())
+func initDynamoClient() *dynamodb.Client {
+	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion(os.Getenv("AWS_REGION")))
 	if err != nil {
-		fmt.Println("Unable to load AWS config:", err)
+		fmt.Println("Error loading AWS config:", err)
 		os.Exit(1)
 	}
+	return dynamodb.NewFromConfig(cfg)
+}
 
-	database.DynamoClient = dynamodb.NewFromConfig(cfg)
+func main() {
+	dynamoClient := initDynamoClient()
+	dbClient := &database.DynamoDBClient{
+		Client:    dynamoClient,
+		TableName: "todos",
+	}
 
-	fmt.Println("Starting server on :8080...")
-	http.ListenAndServe(":8080", nil)
+	setupRoutes(dbClient)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	fmt.Println("Server is running on port", port)
+	http.ListenAndServe(":"+port, nil)
 }

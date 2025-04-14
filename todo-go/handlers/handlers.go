@@ -4,16 +4,17 @@ import (
 	"encoding/json"
 	"net/http"
 
-	database "todo-go/database"
+	"todo-go/database"
 	"todo-go/types"
 
 	"github.com/google/uuid"
 )
 
-func HandleAddTodo(w http.ResponseWriter, r *http.Request) {
+func HandleAddTodo(w http.ResponseWriter, r *http.Request, dbClient database.DatabaseClient) {
 	var todo types.Todo
 	guid := uuid.New()
 	err := json.NewDecoder(r.Body).Decode(&todo)
+
 	if err != nil {
 		http.Error(w, "Invalid Json", http.StatusBadRequest)
 		return
@@ -24,9 +25,10 @@ func HandleAddTodo(w http.ResponseWriter, r *http.Request) {
 		todo.Status = types.StatusUndone
 	}
 
-	err = database.AddTodoToDB(todo)
+	err = dbClient.AddTodoToDB(todo)
+
 	if err != nil {
-		http.Error(w, "Could not write to DynamoDB", http.StatusInternalServerError)
+		http.Error(w, "Could not write to database", http.StatusInternalServerError)
 		return
 	}
 
@@ -39,10 +41,11 @@ func HandleAddTodo(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-func HandleGetTodos(w http.ResponseWriter, _ *http.Request) {
-	todos, err := database.GetTodosFromDB()
+func HandleGetTodos(w http.ResponseWriter, _ *http.Request, dbClient database.DatabaseClient) {
+	todos, err := dbClient.GetTodosFromDB()
+
 	if err != nil {
-		http.Error(w, "Error reading from DynamoDB", http.StatusInternalServerError)
+		http.Error(w, "Error reading from database", http.StatusInternalServerError)
 		return
 	}
 

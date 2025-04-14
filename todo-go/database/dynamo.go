@@ -9,29 +9,32 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 )
 
-var (
-	DynamoClient *dynamodb.Client
-	TodoTable    = "todos"
-)
+type DatabaseClient interface {
+	AddTodoToDB(todo types.Todo) error
+	GetTodosFromDB() ([]types.Todo, error)
+}
 
-func AddTodoToDB(todo types.Todo) error {
-	// Convert todo to a DynamoDB item
+type DynamoDBClient struct {
+	Client    *dynamodb.Client
+	TableName string
+}
+
+func (d *DynamoDBClient) AddTodoToDB(todo types.Todo) error {
 	av, err := attributevalue.MarshalMap(todo)
 	if err != nil {
 		return err
 	}
 
-	// Save to DynamoDB
-	_, err = DynamoClient.PutItem(context.TODO(), &dynamodb.PutItemInput{
-		TableName: &TodoTable,
+	_, err = d.Client.PutItem(context.TODO(), &dynamodb.PutItemInput{
+		TableName: &d.TableName,
 		Item:      av,
 	})
 	return err
 }
 
-func GetTodosFromDB() ([]types.Todo, error) {
-	out, err := DynamoClient.Scan(context.TODO(), &dynamodb.ScanInput{
-		TableName: &TodoTable,
+func (d *DynamoDBClient) GetTodosFromDB() ([]types.Todo, error) {
+	out, err := d.Client.Scan(context.TODO(), &dynamodb.ScanInput{
+		TableName: &d.TableName,
 	})
 	if err != nil {
 		return nil, err
