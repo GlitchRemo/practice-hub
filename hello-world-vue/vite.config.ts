@@ -17,4 +17,16 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  test: {
+    globals: true, // Use globals like `describe` and `it` without imports
+    environment: 'jsdom', // Use jsdom for testing in a browser-like environment
+    transformMode: {
+      web: [/\.vue$/],
+    },
+    // Enable coverage reporting
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+      exclude: ['**/main.ts', '**config.ts', 'env.d.ts'],
+    },
+  },
 })
