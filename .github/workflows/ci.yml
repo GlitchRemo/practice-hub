@@ -1,4 +1,4 @@
-name: CI
+name: Vue CI
 
 on:
   push:
@@ -11,6 +11,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hello-world-vue
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
